@@ -303,8 +303,7 @@ module OneLogin
           :validate_structure,
           :validate_in_response_to,
           :validate_conditions,
-          :validate_audience,
-          :validate_destination
+          :validate_audience
         ]
 
         # ,
