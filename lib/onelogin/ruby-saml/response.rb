@@ -306,12 +306,13 @@ module OneLogin
           :validate_num_assertion,
           :validate_no_encrypted_attributes,
           :validate_structure,
-          :validate_issuer
+          :validate_issuer,
+          :validate_session_expiration
         ]
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
 
-        #     :validate_session_expiration,
+
         #     :validate_subject_confirmation,
         #     :validate_signature
 
