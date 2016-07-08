@@ -296,7 +296,9 @@ module OneLogin
           :validate_response_state,
           :validate_version,
           :validate_id,
-          :validate_success_status
+          :validate_success_status,
+          :validate_num_assertion,
+          :validate_no_encrypted_attributes
         ]
 
         # ,
