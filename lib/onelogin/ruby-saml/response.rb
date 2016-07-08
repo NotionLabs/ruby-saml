@@ -295,7 +295,8 @@ module OneLogin
         validations = [
           :validate_response_state,
           :validate_version,
-          :validate_id
+          :validate_id,
+          :validate_success_status
         ]
 
         # ,
