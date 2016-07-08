@@ -307,13 +307,14 @@ module OneLogin
           :validate_no_encrypted_attributes,
           :validate_structure,
           :validate_issuer,
-          :validate_session_expiration
+          :validate_session_expiration,
+          :validate_subject_confirmation
         ]
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
 
 
-        #     :validate_subject_confirmation,
+
         #     :validate_signature
 
         if collect_errors
