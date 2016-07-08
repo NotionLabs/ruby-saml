@@ -305,14 +305,11 @@ module OneLogin
           :validate_conditions,
           :validate_num_assertion,
           :validate_no_encrypted_attributes,
-          :validate_structure
+          :validate_structure,
+          :validate_destination
         ]
-
         #     :validate_audience - ? signed
-        #     :validate_success_status, ? not included
-            # :validate_signed_elements,
 
-        #     :validate_destination,
         #     :validate_issuer,
         #     :validate_session_expiration,
         #     :validate_subject_confirmation,
