@@ -308,14 +308,15 @@ module OneLogin
           :validate_structure,
           :validate_issuer,
           :validate_session_expiration,
-          :validate_subject_confirmation
+          :validate_subject_confirmation,
+          :validate_signature
         ]
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
 
 
 
-        #     :validate_signature
+
 
         if collect_errors
           validations.each { |validation| send(validation) }
