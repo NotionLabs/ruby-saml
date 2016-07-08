@@ -303,14 +303,15 @@ module OneLogin
           :validate_structure,
           :validate_in_response_to,
           :validate_conditions,
-          :validate_num_assertion
+          :validate_num_assertion,
+          :validate_no_encrypted_attributes
         ]
 
         #     :validate_audience - ? signed
         #     :validate_success_status, ? not included
 
-        #     :validate_no_encrypted_attributes,
-        #     :validate_signed_elements,
+
+            # :validate_signed_elements,
         #     :validate_structure,
         #     :validate_in_response_to,
         #     :validate_conditions,
@@ -442,7 +443,7 @@ module OneLogin
       # Validates the Signed elements
       # If fails, the error is added to the errors array
       # @return [Boolean] True if there is 1 or 2 Elements signed in the SAML Response
-      #                                   an are a Response or an Assertion Element, otherwise False if soft=True
+      # an are a Response or an Assertion Element, otherwise False if soft=True
       #
       def validate_signed_elements
         signature_nodes = REXML::XPath.match(
