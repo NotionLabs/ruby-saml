@@ -304,18 +304,14 @@ module OneLogin
           :validate_in_response_to,
           :validate_conditions,
           :validate_num_assertion,
-          :validate_no_encrypted_attributes
+          :validate_no_encrypted_attributes,
+          :validate_structure
         ]
 
         #     :validate_audience - ? signed
         #     :validate_success_status, ? not included
-
-
             # :validate_signed_elements,
-        #     :validate_structure,
-        #     :validate_in_response_to,
-        #     :validate_conditions,
-        #     :validate_audience,
+
         #     :validate_destination,
         #     :validate_issuer,
         #     :validate_session_expiration,
