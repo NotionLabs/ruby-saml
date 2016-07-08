@@ -298,7 +298,11 @@ module OneLogin
           :validate_id,
           :validate_success_status,
           :validate_num_assertion,
-          :validate_no_encrypted_attributes
+          :validate_no_encrypted_attributes,
+          :validate_signed_elements,
+          :validate_structure,
+          :validate_in_response_to,
+          :validate_conditions
         ]
 
         # ,
