@@ -309,9 +309,9 @@ module OneLogin
           :validate_session_expiration,
           :validate_subject_confirmation,
           :validate_signature,
-          :validate_destination
+          :validate_destination,
+          :validate_issuer
         ]
-            # :validate_issuer
 
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
