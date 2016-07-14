@@ -303,13 +303,12 @@ module OneLogin
           :validate_structure,
           :validate_in_response_to,
           :validate_conditions,
-          :validate_num_assertion
+          :validate_num_assertion,
+          :validate_no_encrypted_attributes,
+          :validate_structure,
+          :validate_issuer
         ]
 
-        # ,
-        #     :validate_no_encrypted_attributes,
-        #     :validate_structure,
-        #     :validate_issuer,
         #     :validate_session_expiration,
         #     :validate_subject_confirmation,
         #     :validate_signature
