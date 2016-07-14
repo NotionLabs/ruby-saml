@@ -298,25 +298,25 @@ module OneLogin
           :validate_id,
           :validate_success_status,
           :validate_num_assertion,
-          :validate_no_encrypted_attributes,
-          :validate_signed_elements,
-          :validate_structure,
-          :validate_in_response_to,
-          :validate_conditions,
-          :validate_num_assertion,
-          :validate_no_encrypted_attributes,
-          :validate_structure,
-          :validate_issuer,
-          :validate_session_expiration,
-          :validate_subject_confirmation,
-          :validate_signature
+          :validate_no_encrypted_attributes
         ]
+
+        # :validate_signed_elements,
+        # :validate_structure,
+        # :validate_in_response_to,
+        # :validate_conditions,
+        # :validate_num_assertion,
+        # :validate_no_encrypted_attributes,
+        # :validate_structure,
+        # :validate_issuer,
+        # :validate_session_expiration,
+        # :validate_subject_confirmation,
+        # :validate_signature
+
+
+
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
-
-
-
-
 
         if collect_errors
           validations.each { |validation| send(validation) }
