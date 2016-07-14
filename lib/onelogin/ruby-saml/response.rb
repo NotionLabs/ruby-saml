@@ -308,7 +308,8 @@ module OneLogin
           :validate_structure,
           :validate_session_expiration,
           :validate_subject_confirmation,
-          :validate_signature
+          :validate_signature,
+          :validate_destination
         ]
             # :validate_issuer
 
