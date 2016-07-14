@@ -305,12 +305,12 @@ module OneLogin
           :validate_conditions,
           :validate_num_assertion,
           :validate_no_encrypted_attributes,
-          :validate_structure
+          :validate_structure,
+          :validate_session_expiration,
+          :validate_subject_confirmation,
+          :validate_signature
         ]
             # :validate_issuer
-        #     :validate_session_expiration,
-        #     :validate_subject_confirmation,
-        #     :validate_signature
 
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
