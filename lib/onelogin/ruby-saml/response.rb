@@ -310,7 +310,8 @@ module OneLogin
           :validate_subject_confirmation,
           :validate_signature,
           :validate_destination,
-          :validate_issuer
+          :validate_issuer,
+          :validate_user
         ]
 
         #     :validate_audience - ? signed
@@ -324,6 +325,22 @@ module OneLogin
         end
       end
 
+      # Validates the normal user or employee user last_response_id from id of the SAML Response
+      # @return [Boolean] True if no record found, otherwise False
+      # @raise [ValidationError] if False and validation fails
+      
+      def validate_user
+        response_id = id(document)
+        return append_error("Missing ID attribute on SAML Response") if response_id.blank?
+        
+        employee_user = EmployeeUser.where(:last_response_id => response_id)
+        user = User.where(:last_response_id => response_id)
+        
+        return append_error("Employee user found for SAML Response ID") if employee_user.present?
+        return append_error("User found for SAML Response ID") if user.present?
+        
+        true
+      end
 
       # Validates the Status of the SAML Response
       # @return [Boolean] True if the SAML Response contains a Success code, otherwise False if soft == false
