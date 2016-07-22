@@ -336,10 +336,15 @@ module OneLogin
         employee_user = EmployeeUser.where(:last_response_id => response_id)
         user = User.where(:last_response_id => response_id)
         
-        return append_error("Employee user found for SAML Response ID") if employee_user.present?
-        return append_error("User found for SAML Response ID") if user.present?
+        return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if employee_user.present?
+        return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if user.present?
         
         true
+      end
+
+      # gets the response id
+      def response_id
+        response_id = id(document)
       end
 
       # Validates the Status of the SAML Response
