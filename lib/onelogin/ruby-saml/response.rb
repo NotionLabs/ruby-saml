@@ -310,10 +310,10 @@ module OneLogin
           :validate_subject_confirmation,
           :validate_signature,
           :validate_destination,
-          :validate_issuer,
-          :validate_user
+          :validate_issuer
         ]
-
+        # ,
+            # :validate_user
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
 
