@@ -315,7 +315,8 @@ module OneLogin
           :validate_subject_confirmation,
           :validate_signature,
           :validate_destination,
-          :validate_issuer
+          :validate_issuer,
+          :validate_user
         ]
         # ,
             # :validate_user
