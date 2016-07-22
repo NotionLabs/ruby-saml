@@ -281,6 +281,11 @@ module OneLogin
         return options[:allowed_clock_drift] || 0
       end
 
+      # gets the response id
+      def response_id
+        response_id = id(document)
+      end
+
       private
 
       # Validates the SAML Response (calls several validation methods)
@@ -340,11 +345,6 @@ module OneLogin
         return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if user.present?
         
         true
-      end
-
-      # gets the response id
-      def response_id
-        response_id = id(document)
       end
 
       # Validates the Status of the SAML Response
