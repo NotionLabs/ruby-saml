@@ -339,7 +339,7 @@ module OneLogin
         response_id = id(document)
         return append_error("Missing ID attribute on SAML Response") if response_id.blank?
         
-        employee_user = EmployeeUser.where(:last_response_id => response_id)
+        employee_user = EmployeeUser.find_by(last_response_id: response_id)
         # user = User.where(:last_response_id => response_id)
         #
         return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if employee_user.present?
