@@ -316,10 +316,10 @@ module OneLogin
           :validate_signature,
           :validate_destination,
           :validate_issuer,
-          :validate_user
+          :validate_user,
+          :validate_response_id
         ]
-        # ,
-            # :validate_user
+
         #     :validate_audience - ? signed
         #     :validate_destination - ? should work
 
@@ -336,15 +336,29 @@ module OneLogin
       # @raise [ValidationError] if False and validation fails
       
       def validate_user
+        unless id(document)
+          return append_error("Missing ID attribute on SAML Response")
+        end
+
+        true
+      end
+
+      def validate_response_id
+
         response_id = id(document)
-        return append_error("Missing ID attribute on SAML Response") if response_id.blank?
-        
+
+        puts '-------- start: id from validate_user ---------'
+        puts response_id
+        puts '-------- end: id from validate_user ---------'
+
         employee_user = EmployeeUser.find_by(last_response_id: response_id)
-        # user = User.where(:last_response_id => response_id)
-        #
+        puts '-------- start: EmployeeUser from validate_user ---------'
+        puts employee_user
+        puts '-------- end: EmployeeUser from validate_user ---------'
+
+        puts '------ employee user present ------' if employee_user.present?
         return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if employee_user.present?
-        # return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if user.present?
-        
+
         true
       end
 
