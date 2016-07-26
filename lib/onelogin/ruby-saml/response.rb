@@ -626,6 +626,14 @@ module OneLogin
         return true if settings.idp_entity_id.nil?
 
         issuers.each do |issuer|
+          puts "================ URI.parse(issuer) ================"
+          puts URI.parse(issuer)
+          puts "================ URI.parse(settings.idp_entity_id) ================"
+          puts URI.parse(settings.idp_entity_id)
+          puts "================ URI.parse(issuer) == URI.parse(settings.idp_entity_id) ================"
+          puts URI.parse(issuer) == URI.parse(settings.idp_entity_id)
+          puts "==============================================="
+
           unless URI.parse(issuer) == URI.parse(settings.idp_entity_id)
             error_msg = "Doesn't match the issuer, expected: <#{settings.idp_entity_id}>, but was: <#{issuer}>"
             puts "================ def validate_issuer append error ================"
