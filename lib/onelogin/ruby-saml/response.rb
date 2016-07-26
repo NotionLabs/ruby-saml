@@ -317,10 +317,11 @@ module OneLogin
           :validate_destination,
           :validate_issuer,
           :validate_user,
-          :validate_response_id
+          :validate_response_id,
+          :validate_audience
         ]
 
-        #     :validate_audience - ? signed
+            # :validate_audience# - ? signed
         #     :validate_destination - ? should work
 
         if collect_errors
