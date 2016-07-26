@@ -555,10 +555,19 @@ module OneLogin
       # @raise [ValidationError] if soft == false and validation fails
       #
       def validate_audience
+        puts "================ def validate_audience ================"
+        puts "audiences.empty? -> #{audiences.empty?}"
+        puts "settings.issuer.nil? -> #{settings.issuer.nil?}"
+        puts "settings.issuer.empty? -> #{settings.issuer.empty?}"
+        puts "======================================================="
+
         return true if audiences.empty? || settings.issuer.nil? || settings.issuer.empty?
 
         unless audiences.include? settings.issuer
           error_msg = "#{settings.issuer} is not a valid audience for this Response - Valid audiences: #{audiences.join(',')}"
+          puts "================ def validate_audience append error ================"
+          puts error_msg
+          puts "====================================================="
           return append_error(error_msg)
         end
 
@@ -610,11 +619,18 @@ module OneLogin
       # @raise [ValidationError] if soft == false and validation fails
       #
       def validate_issuer
+        puts "================ def validate_issuer ================"
+        puts settings.idp_entity_id
+        puts "====================================================="
+
         return true if settings.idp_entity_id.nil?
 
         issuers.each do |issuer|
           unless URI.parse(issuer) == URI.parse(settings.idp_entity_id)
             error_msg = "Doesn't match the issuer, expected: <#{settings.idp_entity_id}>, but was: <#{issuer}>"
+            puts "================ def validate_issuer append error ================"
+            puts error_msg
+            puts "====================================================="
             return append_error(error_msg)
           end
         end
