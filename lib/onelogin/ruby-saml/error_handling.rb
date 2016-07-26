@@ -10,7 +10,12 @@ module OneLogin
       # soft for just this invocation.
       def append_error(error_msg, soft_override = nil)
         @errors << error_msg
-
+        puts "================================="
+        puts "------------ Errors------------"
+        puts @errors
+        puts "---------Soft override-----"
+        puts soft_override
+        puts "================================="
         unless soft_override.nil? ? soft : soft_override
           raise ValidationError.new(error_msg)
         end
