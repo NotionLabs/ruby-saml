@@ -94,6 +94,11 @@ module OneLogin
       def create_xml_document(settings)
         time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 
+        puts "============ create_xml_document ============"
+        puts "actual time -> #{Time.now}"
+        puts "utc time -> #{time}"
+        puts "============================================="
+
         request_doc = XMLSecurity::Document.new
         request_doc.uuid = uuid
 
