@@ -13,7 +13,7 @@ module OneLogin
         puts "================================="
         puts "------------ Errors------------"
         puts @errors
-        puts "---------Soft override-----"
+        puts "---------Soft override?-----"
         puts soft_override
         puts "================================="
         unless soft_override.nil? ? soft : soft_override

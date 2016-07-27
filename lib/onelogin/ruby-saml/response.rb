@@ -568,7 +568,7 @@ module OneLogin
           puts "================ def validate_audience append error ================"
           puts error_msg
           puts "====================================================="
-          return append_error(error_msg)
+          return append_error(error_msg, false)
         end
 
         true
@@ -602,12 +602,12 @@ module OneLogin
 
         if not_before && (now + allowed_clock_drift) < not_before
           error_msg = "Current time is earlier than NotBefore condition #{(now + allowed_clock_drift)} < #{not_before})"
-          return append_error(error_msg)
+          return append_error(error_msg, false)
         end
 
         if not_on_or_after && now >= (not_on_or_after + allowed_clock_drift)
           error_msg = "Current time is on or after NotOnOrAfter condition (#{now} >= #{not_on_or_after + allowed_clock_drift})"
-          return append_error(error_msg)
+          return append_error(error_msg, false)
         end
 
         true
@@ -639,7 +639,7 @@ module OneLogin
             puts "================ def validate_issuer append error ================"
             puts error_msg
             puts "====================================================="
-            return append_error(error_msg)
+            return append_error(error_msg, false)
           end
         end
 
