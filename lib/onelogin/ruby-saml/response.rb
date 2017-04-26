@@ -332,7 +332,7 @@ module OneLogin
         end
       end
 
-      # Validates the normal user or EmployeeUser user last_response_id from id of the SAML Response
+      # Validates the normal user or Associate user last_response_id from id of the SAML Response
       # @return [Boolean] True if no record found, otherwise False
       # @raise [ValidationError] if False and validation fails
       
@@ -352,13 +352,13 @@ module OneLogin
         puts response_id
         puts '-------- end: id from validate_user ---------'
 
-        employee_user = EmployeeUser.find_by(last_response_id: response_id)
-        puts '-------- start: employee_user from validate_user ---------'
-        puts employee_user
-        puts '-------- end: employee_user from validate_user ---------'
+        associate = Associate.find_by(last_response_id: response_id)
+        puts '-------- start: Associate from validate_user ---------'
+        puts associate
+        puts '-------- end: Associate from validate_user ---------'
 
-        puts '------ employee_user user present ------' if employee_user.present?
-        return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if employee_user.present?
+        puts '------ Associate user present ------' if associate.present?
+        return append_error("Duplicate SAML RESPONSE ID - REPLAY ATTACK") if associate.present?
 
         true
       end
